@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatActivity" >
+
+    <LinearLayout
+        android:id="@+id/chatheader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="#FF1E7FCB"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tvChatTitle"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="4"
+            android:background="#FF1E7FCB"
+            android:gravity="center"
+            android:text="@string/chatTitle"
+            android:textColor="#FFFFFFFF"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnhistorique"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/drawable"
+            android:text="@string/historique" />
+    </LinearLayout>
+<!--  
+    <ListView
+        android:id="@+id/lvchat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/chatfooter"
+        android:layout_below="@+id/chatheader"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll" >
+    </ListView>
+-->
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/lvchat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/chatfooter"
+        android:layout_below="@+id/chatheader"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll"
+        ptr:ptrMode="pullUpFromBottom" />
+
+    <LinearLayout
+        android:id="@+id/chatfooter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FF1E7FCB"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/etaddmessage"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="4"
+            android:background="#FFDFF2FF"
+            android:inputType="text"
+            android:labelFor="@+id/etaddmessage" />
+
+        <Button
+            android:id="@+id/btnsend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/drawable"
+            android:text="@string/send" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pbmessage"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:visibility="invisible" />
+
+</RelativeLayout>
